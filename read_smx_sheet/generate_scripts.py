@@ -4,7 +4,7 @@ sys.path.append(os.getcwd())
 from read_smx_sheet.app_Lib import manage_directories as md, functions as funcs
 from dask import compute, delayed, config
 from dask.diagnostics import ProgressBar
-from read_smx_sheet.templates import D000
+from read_smx_sheet.templates import D000, D100
 from read_smx_sheet.parameters import parameters as pm
 import datetime as dt
 
@@ -65,7 +65,7 @@ class GenerateScripts:
         self.log_file.write("Output folder: \t" + self.cf.output_folder_path)
         home_output_path = self.cf.output_folder_path
         self.parallel_create_output_home_path.append(delayed(md.create_folder)(home_output_path))
-        self.parallel_templates.append(delayed(D000.parse_file)(self.cf,self.log_file))
+        self.parallel_templates.append(delayed(D100.parse_file)(self.cf))
 
         if len(self.parallel_templates) > 0:
             scheduler_value = 'processes' if self.read_sheets_parallel == 1 else ''
