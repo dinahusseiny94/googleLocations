@@ -34,21 +34,19 @@ def find(chrome, destination, cf):
         routes_distances = chrome.find_elements_by_class_name('section-directions-trip-distance')
     for routeTitle in routes:
         routeTitleText = routeTitle.text
-        print(routeTitleText)
         if routeTitleText != '':
             routeTitleCol.append(routeTitleText)
     count = 0
     for routeDistance in routes_distances:
         routeDistanceText = routeDistance.text.replace('km', '')
         routeDistanceInKM = routeDistanceText.replace('كم', '')
+        if routeDistanceInKM == '':
+            routeDistanceInKM = 10000
         minRouteDistance = float(routeDistanceInKM.strip())
-        print(minRouteDistance)
         if minRouteDistance < minDistance:
             minDistance = minRouteDistance
             minIndex = count
         count = count + 1
-    print(minDistance)
-    print(routeTitleCol[minIndex])
     sourceLocation.append(source_location)
     targetLocation.append(destination)
     shortestRouteDistance.append(minDistance)

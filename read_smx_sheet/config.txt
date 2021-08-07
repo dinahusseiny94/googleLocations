@@ -1,4 +1,4 @@
-source_location = "Pizza king Haram"
+source_location = "metro market zamalek"
 destinations_file_path = "/Users/dinaelhusseiny/Desktop/WebScraping/Amazon/Target_Locations.csv"
 output_folder_name = "output_file"
-output_folder_path = "/Users/dinaelhusseiny/Desktop/WebScraping/Amazon/output"
+output_folder_path = "/Users/dinaelhusseiny/Desktop/WebScraping/Amazon/output/gded"
