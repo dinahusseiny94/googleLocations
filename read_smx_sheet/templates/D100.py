@@ -40,7 +40,7 @@ def find(chrome, destination, cf):
     for routeDistance in routes_distances:
         routeDistanceText = routeDistance.text.replace('km', '')
         routeDistanceText = routeDistanceText.replace('كم', '')
-        routeDistanceText = routeDistanceText.text.replace('m', '')
+        routeDistanceText = routeDistanceText.replace('m', '')
         routeDistanceInKM = routeDistanceText.replace('م', '')
         if routeDistanceInKM == '':
             routeDistanceInKM = '10000'
