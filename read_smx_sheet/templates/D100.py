@@ -39,9 +39,11 @@ def find(chrome, destination, cf):
     count = 0
     for routeDistance in routes_distances:
         routeDistanceText = routeDistance.text.replace('km', '')
-        routeDistanceInKM = routeDistanceText.replace('كم', '')
+        routeDistanceText = routeDistanceText.replace('كم', '')
+        routeDistanceText = routeDistanceText.text.replace('m', '')
+        routeDistanceInKM = routeDistanceText.replace('م', '')
         if routeDistanceInKM == '':
-            routeDistanceInKM = 10000
+            routeDistanceInKM = '10000'
         minRouteDistance = float(routeDistanceInKM.strip())
         if minRouteDistance < minDistance:
             minDistance = minRouteDistance
