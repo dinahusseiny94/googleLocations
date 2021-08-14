@@ -38,10 +38,13 @@ def find(chrome, destination, cf):
             routeTitleCol.append(routeTitleText)
     count = 0
     for routeDistance in routes_distances:
-        routeDistanceText = routeDistance.text.replace('km', '')
-        routeDistanceText = routeDistanceText.replace('كم', '')
-        routeDistanceText = routeDistanceText.replace('m', '')
-        routeDistanceInKM = routeDistanceText.replace('م', '')
+        routeDistanceText = routeDistance.text
+        if ('m' in routeDistanceText or 'م' in routeDistanceText) and ('km' not in routeDistanceText or 'كم' not in routeDistanceText) :
+            routeDistanceText = routeDistanceText.replace('m', '')
+            routeDistanceText = routeDistanceText.replace('م', '')
+            routeDistanceText = str(float(routeDistanceText.strip())/1000)
+        routeDistanceText = routeDistanceText.replace('km', '')
+        routeDistanceInKM = routeDistanceText.replace('كم', '')
         if routeDistanceInKM == '':
             routeDistanceInKM = '10000'
         minRouteDistance = float(routeDistanceInKM.strip())

@@ -10,7 +10,6 @@ from read_smx_sheet.parameters import parameters as pm
 import read_smx_sheet.generate_scripts as gs
 import datetime as dt
 import traceback
-import time
 import threading
 import random
 
