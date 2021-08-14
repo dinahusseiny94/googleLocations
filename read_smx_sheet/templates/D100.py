@@ -1,7 +1,7 @@
 from selenium import webdriver
 from time import sleep
 import pandas as pd
-
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Inputs
 sourceLocation = []
@@ -59,7 +59,7 @@ def find(chrome, destination, cf):
 
 
 def parse_file(cf):
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
     target_locations = pd.read_csv(cf.destination_location)
     for target_location in target_locations['Target Locations']:
