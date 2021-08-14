@@ -2,6 +2,12 @@ from selenium import webdriver
 from time import sleep
 import pandas as pd
 from webdriver_manager.chrome import ChromeDriverManager
+from pathlib import Path
+import os
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+print(BASE_DIR)
 
 # Inputs
 sourceLocation = []
@@ -59,7 +65,8 @@ def find(chrome, destination, cf):
 
 
 def parse_file(cf):
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    chrome_path = os.path.join(BASE_DIR, "chromedriver")
+    driver = webdriver.Chrome(chrome_path)
 
     target_locations = pd.read_csv(cf.destination_location)
     for target_location in target_locations['Target Locations']:
