@@ -41,10 +41,10 @@ def find(chrome, destination, cf):
         routeDistanceText = routeDistance.text
         routeDistanceText = routeDistanceText.replace('m', '')
         routeDistanceText = routeDistanceText.replace('م', '')
-        if 'k' not in routeDistanceText or 'ك' not in routeDistanceText :
+        if 'k' not in routeDistanceText and 'ك' not in routeDistanceText :
             routeDistanceText = str(float(routeDistanceText.strip())/1000)
-        routeDistanceText = routeDistanceText.replace('km', '')
-        routeDistanceInKM = routeDistanceText.replace('كم', '')
+        routeDistanceText = routeDistanceText.replace('k', '')
+        routeDistanceInKM = routeDistanceText.replace('ك', '')
         if routeDistanceInKM == '':
             routeDistanceInKM = '10000'
         minRouteDistance = float(routeDistanceInKM.strip())
